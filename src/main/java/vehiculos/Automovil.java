@@ -6,7 +6,7 @@ public class Automovil extends Vehiculo{
 	private static int cantidadAutomoviles;
 	
 	public Automovil(String placa, String nombre, int precio, int peso, Fabricante fabricante, int puestos) {
-		super(nombre, 4, peso, placa, precio, 100, "FWD", fabricante);
+		super(placa, 4, 100, nombre, precio, peso, "FWD", fabricante);
 		this.puestos = puestos;
 	}
 

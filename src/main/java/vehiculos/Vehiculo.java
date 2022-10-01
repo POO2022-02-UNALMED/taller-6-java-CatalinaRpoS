@@ -12,18 +12,17 @@ public class Vehiculo {
 	protected String traccion;
 	protected Fabricante fabricante;
 	protected static int CantidadVehiculos;
-	protected static ArrayList<Vehiculo> listado = new ArrayList<Vehiculo>();
+	protected static ArrayList<Vehiculo> listado = new ArrayList<>();
 
-	public Vehiculo(String nombre, int puertas, int peso, String placa, int precio, int velocidadMaxima, String traccion, Fabricante fabricante){
-		this.nombre = nombre;
-		this.puertas = puertas;
-		this.peso = peso;
+	public Vehiculo(String placa, int puertas, int velocidadMaxima, String nombre, int precio, int peso, String traccion, Fabricante fabricante){
 		this.placa = placa;
-		this.precio = precio;
+		this.puertas = puertas;
 		this.velocidadMaxima = velocidadMaxima;
+		this.nombre = nombre;
+		this.precio = precio;
+		this.peso = peso;
 		this.traccion = traccion;
 		this.fabricante = fabricante;
-
 
 		// Acciones adicionales
 		CantidadVehiculos += 1;
