@@ -1,4 +1,5 @@
 package vehiculos;
+import java.util.ArrayList;
 
 public class Vehiculo {
 	
@@ -11,16 +12,24 @@ public class Vehiculo {
 	protected String traccion;
 	protected Fabricante fabricante;
 	protected static int CantidadVehiculos;
-	
-	public Vehiculo(String placa, String nombre, int precio, int peso, int velocidadMaxima, Fabricante fabricante, int puertas, String traccion) {
-		this.placa = placa;
+	protected static ArrayList<Vehiculo> listado = new ArrayList<Vehiculo>();
+
+	public Vehiculo(String nombre, int puertas, int peso, String placa, int precio, int velocidadMaxima, String traccion, Fabricante fabricante){
 		this.nombre = nombre;
-		this.precio = precio;
-		this.peso = peso;
-		this.velocidadMaxima = velocidadMaxima;
-		this.fabricante = fabricante;
 		this.puertas = puertas;
-		Vehiculo.CantidadVehiculos += 1;
+		this.peso = peso;
+		this.placa = placa;
+		this.precio = precio;
+		this.velocidadMaxima = velocidadMaxima;
+		this.traccion = traccion;
+		this.fabricante = fabricante;
+
+
+		// Acciones adicionales
+		CantidadVehiculos += 1;
+		listado.add(this);
+		fabricante.getPais().aumentarVentas();
+		fabricante.aumentarVentas();
 	}
 
 	public String getPlaca() {
@@ -95,4 +104,17 @@ public class Vehiculo {
 		CantidadVehiculos = cantidadVehiculos;
 	}
 
+	public static String vehiculosPorTipo(){
+		return  "Automoviles: " + Automovil.getCantidadAutomoviles() + "\n" +
+				"Camionetas: " + Camioneta.getCantidadCamionetas() + "\n" +
+				"Camiones: " + Camion.getCantidadCamiones();
+	}
+
+	public static ArrayList<Vehiculo> getListado() {
+		return listado;
+	}
+
+	public static void setListado(ArrayList<Vehiculo> listado) {
+		Vehiculo.listado = listado;
+	}
 }
